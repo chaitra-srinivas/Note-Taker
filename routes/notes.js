@@ -8,14 +8,15 @@ const { readFromFile, readAndAppend, writeToFile } = require("../helpers/fsUtils
 // GET api Request to read from the db.json file
 
 notes.get("/", (req, res) => {
-  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile('./db/db.json')
+  .then((data) => res.json(JSON.parse(data)));
 });
 
 // GET request for a specific note
 
 notes.get("/:note_id", (req, res) => {
   const noteId = req.params.note_id;
-  readFromFile("./db/db.json")
+  readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
       const result = json.filter((note) => note.note_id === noteId);
@@ -27,7 +28,7 @@ notes.get("/:note_id", (req, res) => {
 // POST request for adding a new note
 notes.post('/',(req,res)=>{
     console.log(req.body);
-    const { title, text, note_id } = req.body;
+    const { title, text } = req.body;
     if(req.body){
         const newNote = {
             title,
@@ -47,13 +48,13 @@ notes.post('/',(req,res)=>{
 // Delete API request
 
 notes.delete('/:note_id', (req,res)=>{
-    const noteId = res.params.note_id;
+    const noteId = req.params.note_id;
     readFromFile('./db/db.json')
     .then((data)=>JSON.parse(data))
     .then((json)=>{
-        const result = json.filter((note) => note.note_id != noteId)
+        const result = json.filter((note) => note.note_id !== noteId)
         writeToFile('./db/db.json', result);
-        res.json(`note ${title} has been deleted`);
+        res.json(`Note ${noteId} has been deleted`);
     });
 });
 
