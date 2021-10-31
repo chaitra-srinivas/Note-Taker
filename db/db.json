@@ -18,5 +18,15 @@
         "title": "xxx",
         "text": "xxx",
         "id": "80f12d47-5754-429d-901e-a8215c4b3335"
+    },
+    {
+        "title": "Bank",
+        "text": "Check bank transfers",
+        "id": "e8fa4f42-49f0-4fa3-8569-626f76605999"
+    },
+    {
+        "title": "Lunch",
+        "text": "Prepare lunch",
+        "id": "c2b7b092-e19b-49a9-a4eb-2459e5dbe095"
     }
 ]
