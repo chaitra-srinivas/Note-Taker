@@ -34,6 +34,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Screenshots](#screenshots)
 - [Questions](#questions)
 - [License](#license)
 - [Deplyed Application](#deployed-application)
@@ -47,7 +48,10 @@ THEN I am presented with empty fields to enter a new note title and the note’s
     
     The deployed link will launch the application on a web browser. Enter note title and note description and click on the save icon to save the note. Clicking on the delete icon removes the note from the database file and the list.
    
-   
+    ## Screenshots
+    ![Note Taker](./public/assets/screenshots/Main-Page.png)
+    ![Note Save](./public/assets/screenshots/Note-Taker.png)
+
     ## Questions
     For any questions regarding the project please visit my 
     GitHub Profile @ 
