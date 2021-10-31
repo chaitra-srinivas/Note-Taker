@@ -14,12 +14,12 @@ notes.get("/", (req, res) => {
 
 // GET request for a specific note
 
-notes.get("/:note_id", (req, res) => {
-  const noteId = req.params.note_id;
+notes.get("/:id", (req, res) => {
+  const noteId = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
-      const result = json.filter((note) => note.note_id === noteId);
+      const result = json.filter((note) => note.id === noteId);
       return result.length > 0 ? res.json(result) : res.json("Note not found!");
     });
 });
@@ -33,7 +33,7 @@ notes.post('/',(req,res)=>{
         const newNote = {
             title,
             text,
-            note_id: uuidv4(),
+            id: uuidv4(),
         };
 
         readAndAppend(newNote, './db/db.json');
@@ -47,12 +47,12 @@ notes.post('/',(req,res)=>{
 
 // Delete API request
 
-notes.delete('/:note_id', (req,res)=>{
-    const noteId = req.params.note_id;
+notes.delete('/:id', (req,res)=>{
+    const noteId = req.params.id;
     readFromFile('./db/db.json')
     .then((data)=>JSON.parse(data))
     .then((json)=>{
-        const result = json.filter((note) => note.note_id !== noteId)
+        const result = json.filter((note) => note.id !== noteId)
         writeToFile('./db/db.json', result);
         res.json(`Note ${noteId} has been deleted`);
     });
